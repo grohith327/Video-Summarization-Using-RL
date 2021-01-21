@@ -22,5 +22,24 @@ Use the shell scripts to run each experiment. The shell script runs each experim
 We train our model architectures on the [TVSum dataset](https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Song_TVSum_Summarizing_Web_2015_CVPR_paper.pdf) using the cross-validation method. Following [Zhou et al.](https://arxiv.org/pdf/1801.00054.pdf), we perform 5 fold cross-validation and report our average out-of-fold F1 score. We also evaluate our model the [SumMe dataset](http://varcity.eu/paper/eccv2014_gygli_vidsum.pdf) to test the generalization of our models. Note that SumMe is an out-of-distribution data and our model is not trained on this dataset.
 
 ## Results
-We use an Enoder-Decoder model.
+We use an Enoder-Decoder model. The architecture of the decoder model for all experiments is fixed, i.e. a bidirectional LSTM. We report the F1 score (note that the agent is not explicitly trained for optimizing this metric) for different Encoder CNN architectures and RL algorithm. 
 
+### TVSum Dataset
+| Encoder - CNN | RL algorithm | Trained with augmented data | F1 Score (mean +- std) |
+| ----------- | ----------- | ----------- | ----------- |
+| Resnet50 | REINFORCE | False | 0.57 +- 0.003|
+| Resnet50 | PPO | False | 0.5736 +- 0.004|
+| Resnet50 | PPO | True | 0.5756 +- 0.002|
+| Resnet101 | REINFORCE | False | 0.5695 +- 0.004|
+| Resnet101 | PPO | False | 0.5712 +- 0.004|
+| Resnet101 | PPO | True | 0.5741 +- 0.003|
+
+### SumeMet Dataset
+Note that the RL agent is not trained on this dataset. Therefore, this can be considered an OOD dataset. Hence, the low F1 scores.
+
+| Encoder - CNN | RL algorithm | Trained with augmented data | F1 Score |
+| ----------- | ----------- | ----------- | ----------- |
+| Resnet50 | PPO | False | 0.1780 |
+| Resnet50 | PPO | True | 0.1887 |
+| Resnet101 | PPO | False | 0.1817 |
+| Resnet101 | PPO | True | 0.1830 |
