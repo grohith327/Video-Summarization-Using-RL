@@ -34,7 +34,7 @@ We use an Enoder-Decoder model. The architecture of the decoder model for all ex
 | Resnet101 | PPO | False | 0.5712 +- 0.004|
 | Resnet101 | PPO | True | 0.5741 +- 0.003|
 
-### SumeMet Dataset
+### SumeMe Dataset
 Note that the RL agent is not trained on this dataset. Therefore, this can be considered an OOD dataset. Hence, the low F1 scores.
 
 | Encoder - CNN | RL algorithm | Trained with augmented data | F1 Score |
