@@ -1,0 +1,11 @@
+submission/
+SumMe/
+tvsum/
+*.png
+*.ipynb
+*.tgz
+*.zip
+__pycache__/
+preprocessed/
+tvsum_summaries/
+logs/
